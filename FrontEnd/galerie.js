@@ -252,7 +252,7 @@ async function deleteWork(projetId) {
                 projetDansGalerie.remove();
             }
 
-            //alert('Projet supprimé avec succès.'); 
+            alert('Projet supprimé avec succès.');
         }
     } catch (error) {
         console.error('Erreur lors de la suppression du projet :', error);
@@ -271,8 +271,13 @@ document.querySelector('#modal-photo-close').addEventListener('click', function 
 });
 document.querySelector('#modal-return').addEventListener('click', function () {
     closeModalEdit(document.querySelector('#modalAddPhoto'));
+    openFirstModal(document.querySelector('#modal1'));
 });
-
+function openFirstModal(modalElement) {
+    modalElement.style.display = 'flex';
+    modalElement.removeAttribute('aria-hidden');
+    modalElement.setAttribute('aria-modal', 'true');
+}
 // Fonction pour ouvrir le modal
 function openModalEdit(modalElement) {
     closeAllModals(); // Fermer tous les autres modals
